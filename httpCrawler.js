@@ -1,5 +1,6 @@
 var http = require('http')
 var cheerio = require('cheerio')
+var Promise = require('Pomise')
 var url = 'http://www.imooc.com/learn/348'
 
 
