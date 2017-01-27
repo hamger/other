@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <style>
+    #loginFrame {
+        height: 300px;
+        width: 400px;
+        background-color: #555;
+        z-index: 2;
+        position: fixed;
+    }
+    
+    #mask {
+        background-color: #ccc;
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+    }
+
+  /*  .loginCon {
+        position: relative;
+       
+        background-color: #2A2C2E;
+    }*/
+    </style>
+</head>
+
+<body>
+    <div id="loginBtn" onclick="loginFrame()">登入</div>
+ 	<div class="login-modal-main">
+        <div class="login-header">
+            <div class="switch" id="switch">
+                <a class="switch_btn_focus" id="switch_qlogin" href="javascript:void(0);" tabindex="7">快速登录</a>
+                <a class="switch_btn" id="switch_login" href="javascript:void(0);" tabindex="8">快速注册</a><div class="switch_bottom" id="switch_bottom" style="position: absolute; width: 70px; left: 0px; overflow: hidden;"></div>
+            </div>
+        </div>
+
+        <div class="web_qr_login" id="web_qr_login" style="display: block;">
+
+            <!--登录-->
+            <div class="web_login">
+                <form id="login-form" accept-charset="utf-8" method="post">
+                    <ul class="reg_form" id="reg-ul">
+                        <div id="login-tip" class="cue green">请登录</div>
+                        <li>
+                            <label for="login-tel" class="input-tips2 bgimg bgimg-public" width="24px" height="24px"></label>
+                            <div class="inputOuter2">
+                                <input type="text" id="login-tel" name="tel" maxlength="16" class="inputstyle2" placeholder="用户名">
+                            </div>
+                        </li>
+
+                        <li>
+                            <label for="login-password" class="input-tips2 bgimg1 bgimg-public"></label>
+                            <div class="inputOuter2">
+                                <input type="password" id="login-password" name="password" maxlength="10" class="inputstyle2" placeholder="密码">
+                            </div>
+
+                        </li>
+                        <li>
+                            <button class="submit-btn" type="submit">登录</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <!--登录end-->
+        </div>
+
+        <!--注册-->
+        <div class="qlogin" id="qlogin" style="display: none;">
+
+            <div class="web_login">
+                <form id="register-form" accept-charset="utf-8" method="post">
+                    <ul class="reg_form" id="reg-ul">
+                        <div id="register-tip" class="cue green">请注册</div>
+                        <li>
+                            <label for="register-tel" class="input-tips2 bgimg2 bgimg-public"></label>
+                            <div class="inputOuter2">
+                                <input type="text" id="register-tel" name="tel" maxlength="11" class="inputstyle2" placeholder="请输入手机号">
+                            </div>
+                        </li>
+
+                        <li>
+                            <label for="register-password" class="input-tips2 bgimg1 bgimg-public"></label>
+                            <div class="inputOuter2">
+                                <input type="password" id="register-password" name="password" maxlength="10" class="inputstyle2" placeholder="密码">
+                            </div>
+
+                        </li>
+                        <li>
+                            <div class="inputOuter2">
+                                <span>
+                                    <input type="text" id="captcha" name="captcha" maxlength="4" class="inputstyle2" style="width: 150px;" placeholder="动态密码">
+                                <div class="get-captcha" id="send-captcha">获取验证码</div>
+                                </span>
+
+                            </div>
+
+                        </li>
+                        <li>
+                            <div class="inputArea">
+                                <button id="reg" class="submit-btn" type="submit">注册</button>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+
+        </div>
+        <!--注册end-->
+    </div>
+    <script>
+    function loginFrame() {
+        //获取页面高宽和可视高宽
+
+        var sWidth = document.body.scrollWidth
+        var sHeight = document.body.scrollHeight
+        var cWidth = window.innerWidth
+        var cHeight = window.innerHeight
+
+        //设置蒙层大小，登入框位置
+
+        var oMask = document.createElement('div')
+        oMask.id = 'mask'
+        oMask.style.height = sHeight + 'px'
+        oMask.style.width = sWidth + 'px'
+        document.body.appendChild(oMask)
+
+        var oLogin = document.createElement("div");
+        oLogin.id = "loginFrame";
+        oLogin.innerHTML = "<div class='loginCon'><div id='close'>点击关闭</div></div>";
+        document.body.appendChild(oLogin);
+
+        var oLoginFrame = document.getElementById('loginFrame')
+        var dHeight = oLoginFrame.offsetHeight
+        var dWidth = oLoginFrame.offsetWidth
+        oLoginFrame.style.top = (cHeight - dHeight) / 2 + 'px'
+        oLoginFrame.style.left = (cWidth - dWidth) / 2 + 'px'
+
+        //点击关闭按钮
+        var oClose = document.getElementById("close")
+
+        //点击登陆框以外的区域也可以关闭登陆框
+        oClose.onclick = oMask.onclick = function() {
+            document.body.removeChild(oLogin)
+            document.body.removeChild(oMask)
+        };
+    }
+    </script>
+</body>
+
+</html>
