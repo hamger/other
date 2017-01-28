@@ -4,46 +4,133 @@
 <head>
     <meta charset="UTF-8">
     <title>login</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <style>
-    #loginFrame {
-        height: 300px;
-        width: 400px;
-        background-color: #555;
-        z-index: 2;
-        position: fixed;
+    a {
+        text-decoration: none;
+        outline: none;
     }
     
-    #mask {
-        background-color: #ccc;
-        opacity: 0.5;
-        filter: alpha(opacity=50);
+    ul li {
+        list-style-type: none;
+    }
+    
+    .login-overlay {
+        background-color: #000;
+        opacity: 0.25;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .login-modal-main {
+        width: 370px;
+        margin: 0 auto;
         position: absolute;
-        left: 0;
-        top: 0;
-        z-index: 1;
+        background-color: #fff;
+        border-radius: 5px;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        padding:0 38px 30px 38px;
+        overflow: hidden;
+    }
+    
+    .login-header {
+        height: 50px;
+        border-bottom: 1px solid #e2e2e2;
+        position: relative;
+        font-size: 16px;
     }
 
-  /*  .loginCon {
-        position: relative;
-       
-        background-color: #2A2C2E;
-    }*/
+    .login-header a {
+    	line-height: 50px;
+    	text-decoration: none;
+        outline: none;
+    }
+   
+    
+    .cue {
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+        border: 1px solid #eee;
+        margin: 20px 0;
+    }
+    
+    .green {
+        color: green;
+    }
+
+    #web_qr_login {
+    	width: 100%;
+    }
+    
+    .inputstyle2 {
+        height: 34px;
+        line-height: 34px;
+        border: 1px solid #D7D7D7;
+        background: #fff;
+        color: #333;
+        font-size: 16px;
+        padding: 5px 5px 5px 45px;
+        width: 291px;
+    }
+    
+    input {
+        -webkit-appearance: none;
+    }
+    
+    .web_login .submit-btn {
+        display: block;
+        border: none;
+        background-color: #38f;
+        padding: 10px 0;
+        width: 291px;
+        cursor: pointer;
+        text-align: center;
+        font-size: 16px;
+        color: white;
+        border-radius: 3px;
+        margin-bottom: 20px;
+    }
+    
+    .get-captcha {
+        background-color: #38f;
+        border: medium none;
+        bottom: 0;
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+        height: 34px;
+        line-height: 34px;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        width: 110px;
+    }
     </style>
 </head>
 
 <body>
-    <div id="loginBtn" onclick="loginFrame()">登入</div>
- 	<div class="login-modal-main">
+    <button id="loginBtn" onclick="loginFrame()">登入</button>
+    <!-- mask -->
+    <div class="login-overlay"></div>
+    <div class="login-modal-main container">
+        <!-- header -->
         <div class="login-header">
-            <div class="switch" id="switch">
-                <a class="switch_btn_focus" id="switch_qlogin" href="javascript:void(0);" tabindex="7">快速登录</a>
-                <a class="switch_btn" id="switch_login" href="javascript:void(0);" tabindex="8">快速注册</a><div class="switch_bottom" id="switch_bottom" style="position: absolute; width: 70px; left: 0px; overflow: hidden;"></div>
+            <div class="switch row text-center" id="switch">
+            <div class="switch_btn_focus col-xs-6" id="switch_qlogin"><a  href="javascript:void(0);" tabindex="7">快速登录</a></div>
+            <div class="switch_btn col-xs-6" id="switch_login"><a href="javascript:void(0);" tabindex="8">快速注册</a></div>
             </div>
         </div>
-
+        <!--登录-->
         <div class="web_qr_login" id="web_qr_login" style="display: block;">
-
-            <!--登录-->
             <div class="web_login">
                 <form id="login-form" accept-charset="utf-8" method="post">
                     <ul class="reg_form" id="reg-ul">
@@ -54,13 +141,11 @@
                                 <input type="text" id="login-tel" name="tel" maxlength="16" class="inputstyle2" placeholder="用户名">
                             </div>
                         </li>
-
                         <li>
                             <label for="login-password" class="input-tips2 bgimg1 bgimg-public"></label>
                             <div class="inputOuter2">
                                 <input type="password" id="login-password" name="password" maxlength="10" class="inputstyle2" placeholder="密码">
                             </div>
-
                         </li>
                         <li>
                             <button class="submit-btn" type="submit">登录</button>
@@ -70,10 +155,8 @@
             </div>
             <!--登录end-->
         </div>
-
         <!--注册-->
         <div class="qlogin" id="qlogin" style="display: none;">
-
             <div class="web_login">
                 <form id="register-form" accept-charset="utf-8" method="post">
                     <ul class="reg_form" id="reg-ul">
@@ -84,13 +167,11 @@
                                 <input type="text" id="register-tel" name="tel" maxlength="11" class="inputstyle2" placeholder="请输入手机号">
                             </div>
                         </li>
-
                         <li>
                             <label for="register-password" class="input-tips2 bgimg1 bgimg-public"></label>
                             <div class="inputOuter2">
                                 <input type="password" id="register-password" name="password" maxlength="10" class="inputstyle2" placeholder="密码">
                             </div>
-
                         </li>
                         <li>
                             <div class="inputOuter2">
@@ -98,9 +179,7 @@
                                     <input type="text" id="captcha" name="captcha" maxlength="4" class="inputstyle2" style="width: 150px;" placeholder="动态密码">
                                 <div class="get-captcha" id="send-captcha">获取验证码</div>
                                 </span>
-
                             </div>
-
                         </li>
                         <li>
                             <div class="inputArea">
@@ -110,47 +189,224 @@
                     </ul>
                 </form>
             </div>
-
         </div>
         <!--注册end-->
     </div>
     <script>
-    function loginFrame() {
-        //获取页面高宽和可视高宽
-
-        var sWidth = document.body.scrollWidth
-        var sHeight = document.body.scrollHeight
-        var cWidth = window.innerWidth
-        var cHeight = window.innerHeight
-
-        //设置蒙层大小，登入框位置
-
-        var oMask = document.createElement('div')
-        oMask.id = 'mask'
-        oMask.style.height = sHeight + 'px'
-        oMask.style.width = sWidth + 'px'
-        document.body.appendChild(oMask)
-
-        var oLogin = document.createElement("div");
-        oLogin.id = "loginFrame";
-        oLogin.innerHTML = "<div class='loginCon'><div id='close'>点击关闭</div></div>";
-        document.body.appendChild(oLogin);
-
-        var oLoginFrame = document.getElementById('loginFrame')
-        var dHeight = oLoginFrame.offsetHeight
-        var dWidth = oLoginFrame.offsetWidth
-        oLoginFrame.style.top = (cHeight - dHeight) / 2 + 'px'
-        oLoginFrame.style.left = (cWidth - dWidth) / 2 + 'px'
-
-        //点击关闭按钮
-        var oClose = document.getElementById("close")
-
-        //点击登陆框以外的区域也可以关闭登陆框
-        oClose.onclick = oMask.onclick = function() {
-            document.body.removeChild(oLogin)
-            document.body.removeChild(oMask)
+    $(function() {
+        var userLoginModal = {
+            open: function() {
+                $("#login-modal").show();
+                $("#login-modal .login-overlay").on('click', function() {
+                    userLoginModal.close();
+                });
+            },
+            close: function() {
+                $('#login-modal').hide();
+            }
         };
-    }
+
+        $("#user-login").click(function() {
+            userLoginModal.open();
+        });
+
+        $('#switch_qlogin').click(function() {
+            $('#switch_login').removeClass("switch_btn_focus").addClass('switch_btn');
+            $('#switch_qlogin').removeClass("switch_btn").addClass('switch_btn_focus');
+            $('#switch_bottom').animate({
+                left: '0px',
+                width: '70px'
+            });
+            $('#qlogin').css('display', 'none');
+            $('#web_qr_login').css('display', 'block');
+        });
+
+        $('#switch_login').click(function() {
+            $('#switch_login').removeClass("switch_btn").addClass('switch_btn_focus');
+            $('#switch_qlogin').removeClass("switch_btn_focus").addClass('switch_btn');
+            $('#switch_bottom').animate({
+                left: '140px',
+                width: '70px'
+            });
+
+            $('#qlogin').css('display', 'block');
+            $('#web_qr_login').css('display', 'none');
+        });
+
+        function txt(a, b) {
+            $('#register-tip').html('<font class=' + a + '>' + b + '</font>')
+        }
+
+        function logintxt(a, b) {
+            $('#login-tip').html('<font class=' + a + '>' + b + '</font>')
+        }
+        var sendCaptcha = function() {
+            var tel = $('#register-tel').val();
+            if (tel == "") {
+                txt('red', "号码不能为空!");
+                return;
+            }
+            if (!verifyTel(tel)) {
+                txt('red', "号码格式不对!");
+                return;
+            }
+            $.ajax({
+                type: "POST",
+                url: "/send_sms",
+                data: {
+                    tel: tel
+                },
+                dataType: "json",
+                timeout: 7000,
+                success: function(data) {
+                    if (data.errcode == 0) {
+                        $("#send-captcha").off('click');
+                        tmpSetSendBtnDisabled(60);
+                        txt('green', "请填写验证码！")
+                    } else {
+                        txt('red', data.errmsg);
+                    }
+                },
+                error: function() {
+                    logErr('网络出错！');
+                }
+            });
+        };
+
+        // 登录表单
+        $('#login-form').submit(function() {
+            var tel = $('#login-tel').val();
+            var password = $('#login-password').val();
+            if (!tel || !password) {
+                logErr("请填写完整");
+                return false;
+            }
+            if (!verifyTel(tel)) {
+                logErr("手机号格式错误");
+                return false;
+            }
+            if (!verifyPass(password)) {
+                logErr("密码格式错误");
+                return false;
+            }
+            $.ajax({
+                type: "POST",
+                url: "/user/verify_login",
+                data: {
+                    tel: tel,
+                    password: password
+                },
+                dataType: "json",
+                timeout: 5000,
+                beforeSend: function(XMLHttpRequest) {
+                    //alert('远程调用开始...');
+                    $("#register-tip").addClass("loading");
+                },
+                success: function(data) {
+                    $("#register-tip").removeClass("loading");
+                    if (data.errcode == 0) {
+                        userLoginModal.close();
+                        window.location.reload();
+                    } else {
+                        logErr(data.errmsg);
+                    }
+                },
+                error: function() {
+                    logErr('网络出错！');
+                }
+            });
+            return false;
+
+            // 显示错误
+            function logErr(err) {
+                $('#login-tip').html("<font class='red'>" + err + "</font>");
+            }
+        });
+
+        // 注册表单
+        $('#register-form').submit(function() {
+            var tel = $('#register-tel').val();
+            var password = $('#register-password').val();
+            var captcha = $('#captcha').val();
+            if (!tel || !password || !captcha) {
+                logErr("请填写完整");
+                return false;
+            }
+            if (!verifyTel(tel)) {
+                logErr("手机号格式错误");
+                return false;
+            }
+            if (!verifyPass(password)) {
+                logErr("密码长度为6~14个字符");
+                return false;
+            }
+            if (captcha.length != 4) {
+                logErr("验证码长度错误");
+                return false;
+            }
+            $.ajax({
+                type: "POST",
+                url: "/user/verify_register",
+                data: {
+                    tel: tel,
+                    password: password,
+                    captcha: captcha
+                },
+                dataType: "json",
+                timeout: 5000,
+                success: function(data) {
+                    if (data.errcode == 0) {
+                        $('#captcha').val("");
+                        $('#register-password').val("");
+                        clearInterval(time);
+                        $('#send-captcha').text('获取验证码');
+                        txt('green', "注册成功！");
+                        logintxt('green', "注册成功！请登录！")
+                            // 切换
+                        $('#switch_qlogin').click();
+                    } else {
+                        logErr(data.errmsg);
+                    }
+                },
+                error: function() {
+                    logErr('网络出错！');
+                }
+            });
+            return false;
+
+            // 显示错误
+            function logErr(err) {
+                $('#register-tip').html("<font class='red'>" + err + "</font>");
+            }
+        });
+
+        $("#send-captcha").on('click', sendCaptcha);
+
+        /*  倒计时 */
+        var tmpSetSendBtnDisabled = function(seconds) {
+            if (seconds == 0) {
+                var send = $('#send-captcha');
+                send.text('获取验证码');
+                send.on('click', sendCaptcha);
+            } else {
+                $('#send-captcha').css('background-color', '#eee');
+                $('#send-captcha').css('color', '#000');
+                $('#send-captcha').text('重新获取' + '(' + seconds + ')');
+                time = setTimeout(function() {
+                    tmpSetSendBtnDisabled(--seconds);
+                }, 1000);
+            }
+        };
+
+        // 验证手机号
+        var verifyTel = function(tel) {
+            return tel.match(/^1[34578]\d{9}$/);
+        };
+
+        var verifyPass = function(pass) {
+            return pass.match(/^[a-zA-Z0-9]{6,10}$/)
+        };
+    });
     </script>
 </body>
 
