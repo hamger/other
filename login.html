@@ -16,13 +16,25 @@
     ul li {
         list-style-type: none;
     }
+
+
+    .login-modal {
+        display: none; 
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
     
     .login-overlay {
         background-color: #000;
         opacity: 0.25;
         width: 100%;
         height: 100%;
+        z-index: 22;
     }
+
     
     .login-modal-main {
         width: 370px;
@@ -37,7 +49,7 @@
         -o-transform: translate(-50%, -50%);
         left: 50%;
         top: 50%;
-        padding:0 38px 30px 38px;
+        padding: 0 38px 30px 38px;
     }
     
     .login-header {
@@ -46,13 +58,12 @@
         position: relative;
         font-size: 16px;
     }
-
+    
     .login-header a {
-    	line-height: 50px;
-    	text-decoration: none;
+        line-height: 50px;
+        text-decoration: none;
         outline: none;
     }
-   
     
     .cue {
         width: 100%;
@@ -62,9 +73,9 @@
         margin-top: 20px;
         color: green;
     }
-
+    
     #web_qr_login {
-    	width: 100%;
+        width: 100%;
     }
     
     .inputstyle2 {
@@ -109,7 +120,7 @@
         margin-top: 20px;
         border-radius: 3px;
     }
-
+    
     .reg_form {
         padding: 0;
     }
@@ -117,14 +128,16 @@
 </head>
 
 <body>
+    <button type="button" id="user-login" class="btn"> login </button>
     <!-- mask -->
-    <div class="login-overlay"></div>
+    <div class="login-modal">
+        <div class="login-overlay"></div>
     <div class="login-modal-main container">
         <!-- header -->
         <div class="login-header">
             <div class="switch row text-center" id="switch">
-            <div class="switch_btn_focus col-xs-6" id="switch_qlogin" style="cursor: pointer;"><a  href="javascript:void(0);" tabindex="7">快速登录</a></div>
-            <div class="switch_btn col-xs-6" id="switch_login" style="cursor: pointer;"><a href="javascript:void(0);" tabindex="8">快速注册</a></div>
+                <div class="switch_btn_focus col-xs-6" id="switch_qlogin" style="cursor: pointer;"><a href="javascript:void(0);" tabindex="7">快速登录</a></div>
+                <div class="switch_btn col-xs-6" id="switch_login" style="cursor: pointer;"><a href="javascript:void(0);" tabindex="8">快速注册</a></div>
             </div>
         </div>
         <!--登录-->
@@ -157,7 +170,7 @@
         <div class="qlogin" id="qlogin" style="display: none;">
             <div class="web_login">
                 <form id="register-form" accept-charset="utf-8" method="post">
-                    <ul class="reg_form" >
+                    <ul class="reg_form">
                         <div id="register-tip" class="cue">请注册</div>
                         <li>
                             <label for="register-tel" class="input-tips2 bgimg2 bgimg-public"></label>
@@ -190,17 +203,19 @@
         </div>
         <!--注册end-->
     </div>
+    </div>
+    
     <script>
     $(function() {
         var userLoginModal = {
             open: function() {
-                $("#login-modal").show();
-                $("#login-modal .login-overlay").on('click', function() {
+                $(".login-modal").show();
+                $(".login-overlay").on('click', function() {
                     userLoginModal.close();
                 });
             },
             close: function() {
-                $('#login-modal').hide();
+                $('.login-modal').hide();
             }
         };
 
