@@ -66,7 +66,6 @@
     .switch_btn_focus {
         border-bottom: 2px solid #FEB91E;
     }
-
     
     .cue {
         width: 100%;
@@ -77,11 +76,7 @@
         color: green;
     }
     
-    #web_qr_login {
-        width: 100%;
-    }
-    
-    .inputstyle2 {
+    .inputStyle {
         height: 34px;
         line-height: 34px;
         border: 1px solid #D7D7D7;
@@ -95,7 +90,7 @@
         -webkit-appearance: none;
     }
     
-    .web_login .submit-btn {
+    .submit-btn {
         display: block;
         border: none;
         background-color: #38f;
@@ -127,82 +122,72 @@
     .reg_form {
         padding: 0;
     }
+
+/*    .loading {
+    background-position: 5px center;
+    padding-left: 30px;
+    color: #999;
+    background: url(/img/loading.svg) left center no-repeat;
+}*/
     </style>
 </head>
 
 <body>
     <button type="button" id="user-login" class="btn"> login </button>
-    <!-- mask -->
     <div class="login-modal">
+        <!-- mask -->
         <div class="login-overlay"></div>
+        <!-- 登入框 -->
         <div class="login-modal-main container">
             <!-- header -->
             <div class="login-header">
                 <div class="switch row text-center" id="switch">
-                    <div class="switch_btn_focus col-xs-6" id="switch_qlogin" style="cursor: pointer;"><a href="javascript:void(0);" tabindex="7">快速登录</a></div>
-                    <div class="col-xs-6" id="switch_login" style="cursor: pointer;"><a href="javascript:void(0);" tabindex="8">快速注册</a></div>
+                    <div class="switch_btn_focus col-xs-6" id="login" style="cursor: pointer;"><a href="javascript:void(0);" tabindex="7">快速登录</a></div>
+                    <div class="col-xs-6" id="register" style="cursor: pointer;"><a href="javascript:void(0);" tabindex="8">快速注册</a></div>
                 </div>
             </div>
             <!--登录-->
-            <div class="web_qr_login" id="web_qr_login" style="display: block;">
-                <div class="web_login">
-                    <form id="login-form" accept-charset="utf-8" method="post">
-                        <ul class="reg_form">
-                            <div id="login-tip" class="cue">请登录</div>
-                            <li>
-                                <label for="login-tel" class="input-tips2 bgimg bgimg-public" width="24px" height="24px"></label>
-                                <div class="inputOuter2">
-                                    <input type="text" id="login-tel" name="tel" maxlength="16" class="inputstyle2" placeholder="用户名">
-                                </div>
-                            </li>
-                            <li>
-                                <label for="login-password" class="input-tips2 bgimg1 bgimg-public"></label>
-                                <div class="inputOuter2">
-                                    <input type="password" id="login-password" name="password" maxlength="10" class="inputstyle2" placeholder="密码">
-                                </div>
-                            </li>
-                            <li>
-                                <button class="submit-btn" type="submit">登录</button>
-                            </li>
-                        </ul>
-                    </form>
-                </div>
+            <div id="web_qr_login" style="display: block;">
+                <form id="login-form" accept-charset="utf-8" method="post">
+                    <ul class="reg_form">
+                        <div id="login-tip" class="cue">请登录</div>
+                        <li>
+                            <label for="login-tel" width="24px" height="24px"></label>
+                            <input type="text" id="login-tel" name="tel" maxlength="16" class="inputStyle" placeholder="用户名">
+                        </li>
+                        <li>
+                            <label for="login-password" ></label>
+                            <input type="password" id="login-password" name="password" maxlength="10" class="inputStyle" placeholder="密码">
+                        </li>
+                        <li>
+                            <button class="submit-btn" type="submit">登录</button>
+                        </li>
+                    </ul>
+                </form>
                 <!--登录end-->
             </div>
             <!--注册-->
-            <div class="qlogin" id="qlogin" style="display: none;">
-                <div class="web_login">
-                    <form id="register-form" accept-charset="utf-8" method="post">
-                        <ul class="reg_form">
-                            <div id="register-tip" class="cue">请注册</div>
-                            <li>
-                                <label for="register-tel" class="input-tips2 bgimg2 bgimg-public"></label>
-                                <div class="inputOuter2">
-                                    <input type="text" id="register-tel" name="tel" maxlength="11" class="inputstyle2" placeholder="请输入手机号">
-                                </div>
-                            </li>
-                            <li>
-                                <label for="register-password" class="input-tips2 bgimg1 bgimg-public"></label>
-                                <div class="inputOuter2">
-                                    <input type="password" id="register-password" name="password" maxlength="10" class="inputstyle2" placeholder="密码">
-                                </div>
-                            </li>
-                            <li>
-                                <div class="inputOuter2">
-                                    <span>
-                                    <input type="text" id="captcha" name="captcha" maxlength="4" class="inputstyle2" style="width: 150px;margin-top: 20px" placeholder="动态密码">
-                                <div class="get-captcha" id="send-captcha">获取验证码</div>
-                                </span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="inputArea">
-                                    <button id="reg" class="submit-btn" type="submit">注册</button>
-                                </div>
-                            </li>
-                        </ul>
-                    </form>
-                </div>
+            <div id="web_qr_register" style="display: none;">
+                <form id="register-form" accept-charset="utf-8" method="post">
+                    <ul class="reg_form">
+                        <div id="register-tip" class="cue">请注册</div>
+                        <li>
+                            <label for="register-tel" ></label>
+                            <input type="text" id="register-tel" name="tel" maxlength="11" class="inputStyle" placeholder="请输入手机号">
+                        </li>
+                        <li>
+                            <label for="register-password" ></label>
+                            <input type="password" id="register-password" name="password" maxlength="10" class="inputStyle" placeholder="密码">
+                        </li>
+                        <li>
+                            <input type="text" id="captcha" name="captcha" maxlength="4" class="inputStyle" style="width: 150px;margin-top: 20px" placeholder="动态密码">
+                            <div class="get-captcha" id="send-captcha">获取验证码</div>
+                        </li>
+                        <li>
+                            <button id="reg" class="submit-btn" type="submit">注册</button>
+                        </li>
+                    </ul>
+                </form>
             </div>
             <!--注册end-->
         </div>
@@ -225,35 +210,35 @@
             userLoginModal.open();
         });
 
-        $('#switch_qlogin').click(function() {
-            $('#switch_login').removeClass("switch_btn_focus");
-            $('#switch_qlogin').addClass('switch_btn_focus');            
-            $('#qlogin').css('display', 'none');
+        $('#login').click(function() {
+            $('#register').removeClass("switch_btn_focus");
+            $('#login').addClass('switch_btn_focus');
+            $('#web_qr_register').css('display', 'none');
             $('#web_qr_login').css('display', 'block');
         });
 
-        $('#switch_login').click(function() {
-            $('#switch_qlogin').removeClass("switch_btn_focus");
-            $('#switch_login').addClass('switch_btn_focus');  
-            $('#qlogin').css('display', 'block');
+        $('#register').click(function() {
+            $('#login').removeClass("switch_btn_focus");
+            $('#register').addClass('switch_btn_focus');
+            $('#web_qr_register').css('display', 'block');
             $('#web_qr_login').css('display', 'none');
         });
 
-        function txt(a, b) {
+        function registerTxt(a, b) {
             $('#register-tip').html('<font class=' + a + '>' + b + '</font>')
         }
 
-        function logintxt(a, b) {
+        function loginTxt(a, b) {
             $('#login-tip').html('<font class=' + a + '>' + b + '</font>')
         }
-        var sendCaptcha = function() {
+        function sendCaptcha() {
             var tel = $('#register-tel').val();
             if (tel == "") {
-                txt('red', "号码不能为空!");
+                registerTxt('red', "号码不能为空!");
                 return;
             }
             if (!verifyTel(tel)) {
-                txt('red', "号码格式不对!");
+                registerTxt('red', "号码格式不对!");
                 return;
             }
             $.ajax({
@@ -267,10 +252,10 @@
                 success: function(data) {
                     if (data.errcode == 0) {
                         $("#send-captcha").off('click');
-                        tmpSetSendBtnDisabled(60);
-                        txt('green', "请填写验证码！")
+                        countDown(60);
+                        registerTxt('green', "请填写验证码！")
                     } else {
-                        txt('red', data.errmsg);
+                        registerTxt('red', data.errmsg);
                     }
                 },
                 error: function() {
@@ -366,10 +351,10 @@
                         $('#register-password').val("");
                         clearInterval(time);
                         $('#send-captcha').text('获取验证码');
-                        txt('green', "注册成功！");
-                        logintxt('green', "注册成功！请登录！")
+                        registerTxt('green', "注册成功！");
+                        loginTxt('green', "注册成功！请登录！")
                             // 切换
-                        $('#switch_qlogin').click();
+                        $('#login').click();
                     } else {
                         logErr(data.errmsg);
                     }
@@ -389,7 +374,7 @@
         $("#send-captcha").on('click', sendCaptcha);
 
         /*  倒计时 */
-        var tmpSetSendBtnDisabled = function(seconds) {
+        function countDown(seconds) {
             if (seconds == 0) {
                 var send = $('#send-captcha');
                 send.text('获取验证码');
@@ -399,17 +384,17 @@
                 $('#send-captcha').css('color', '#000');
                 $('#send-captcha').text('重新获取' + '(' + seconds + ')');
                 time = setTimeout(function() {
-                    tmpSetSendBtnDisabled(--seconds);
+                    countDown(--seconds);
                 }, 1000);
             }
         };
 
         // 验证手机号
-        var verifyTel = function(tel) {
+        function verifyTel(tel) {
             return tel.match(/^1[34578]\d{9}$/);
         };
-
-        var verifyPass = function(pass) {
+        // 验证密码
+        function verifyPass(pass) {
             return pass.match(/^[a-zA-Z0-9]{6,10}$/)
         };
     });
