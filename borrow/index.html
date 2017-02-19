@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Borrow</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <!-- 导航 -->
+    <div id="header">
+        <!-- 导航栏 -->
+        <div class='pull-left'>
+            <a href=""><img src="./img/l-1.png" style="margin:15px 20px;display:block"></a>
+        </div>
+        <ul class='pull-right'>
+            <li style="margin-right:20px;margin-left:10px;"><a href="">首页</a></li>
+            <li style="margin-right:30px;margin-left:10px;"><a href="">我要借款</a></li>
+            <li style="margin-right:30px;margin-left:10px;"><a href="">口袋钱包</a></li>
+            <li style="margin-right:30px;margin-left:10px;"><a href="">帮助中心</a></li>
+            <li class='icon' style='width:20px;'><a> | </a></li>
+            <li style="margin-right:16px" id="user-login">
+                <a class='login'><img src="./img/header_default.jpg"> 登录</a>
+            </li>
+        </ul>
+    </div>
+    <!-- 登录弹框 -->
+    <div class="login-modal">
+        <!-- mask -->
+        <div class="login-overlay"></div>
+        <!-- 登入框 -->
+        <div class="login-modal-main container">
+            <!-- header -->
+            <div class="login-header">
+                <div class="switch row text-center" id="switch">
+                    <div class="switch_btn_focus col-xs-6" id="login" style="cursor: pointer;"><a href="javascript:void(0);" tabindex="7">快速登录</a></div>
+                    <div class="col-xs-6" id="register" style="cursor: pointer;"><a href="javascript:void(0);" tabindex="8">快速注册</a></div>
+                </div>
+            </div>
+            <!--登录-->
+            <div id="web_qr_login" style="display: block;">
+                <form id="login-form" accept-charset="utf-8" method="post">
+                    <ul class="reg_form">
+                        <div id="login-tip" class="cue">请登录</div>
+                        <li>
+                            <label for="login-tel" width="24px" height="24px"></label>
+                            <input type="text" id="login-tel" name="tel" maxlength="16" class="inputStyle" placeholder="用户名">
+                        </li>
+                        <li>
+                            <label for="login-password"></label>
+                            <input type="password" id="login-password" name="password" maxlength="10" class="inputStyle" placeholder="密码">
+                        </li>
+                        <li>
+                            <button class="submit-btn" type="submit">登录</button>
+                        </li>
+                    </ul>
+                </form>
+                <!--登录end-->
+            </div>
+            <!--注册-->
+            <div id="web_qr_register" style="display: none;">
+                <form id="register-form" accept-charset="utf-8" method="post">
+                    <ul class="reg_form">
+                        <div id="register-tip" class="cue">请注册</div>
+                        <li>
+                            <label for="register-tel"></label>
+                            <input type="text" id="register-tel" name="tel" maxlength="11" class="inputStyle" placeholder="请输入手机号">
+                        </li>
+                        <li>
+                            <label for="register-password"></label>
+                            <input type="password" id="register-password" name="password" maxlength="10" class="inputStyle" placeholder="密码">
+                        </li>
+                        <li>
+                            <input type="text" id="captcha" name="captcha" maxlength="4" class="inputStyle" style="width: 150px;margin-top: 20px" placeholder="动态密码">
+                            <div class="get-captcha" id="send-captcha">获取验证码</div>
+                        </li>
+                        <li>
+                            <button id="reg" class="submit-btn" type="submit">注册</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <!--注册end-->
+        </div>
+    </div>
+    <!-- 横幅 -->
+    <img src="./img/channel_4.jpg" style="width:100%;" alt="hengfu">
+    <!-- 公告 -->
+    <div id="notice" style='background-color: #f1f1f1;height:40px;'>
+        <div style="padding:10px 0;width:1200px;margin:0 auto;">
+            <span style='float:left'>
+            <i class='fa fa-commenting'></i>最新公告&nbsp;&nbsp;&nbsp;
+            <a style='cursor:pointer;'> 1月11日平台维护公告 /01-2017</a> &nbsp;&nbsp;&nbsp;
+            <a style='cursor:pointer;'> 关于蜂e贷网站全面改版公告 /12-2016</a>
+            </span>
+            <a style='float:right;cursor:pointer;'>更多 &gt;&gt;</a>
+        </div>
+    </div>
+    <!-- 特点图 -->
+    <div class="feature-list-wrapper">
+        <ul class="list clx">
+            <li>
+                <i class="icon-feature-1 icon"></i>
+                <div class="aside">
+                    <h2>纯信用</h2>
+                    <h4>大数据授信，无抵押</h4>
+                </div>
+            </li>
+            <li class="not-first">
+                <i class="icon-feature-2 icon"></i>
+                <div class="aside">
+                    <h2>额度高</h2>
+                    <h4>最高可达100万</h4>
+                </div>
+            </li>
+            <li class="not-first">
+                <i class="icon-feature-3 icon"></i>
+                <div class="aside">
+                    <h2>放款快</h2>
+                    <h4>智能审核 急速放款</h4>
+                </div>
+            </li>
+            <li class="not-first">
+                <i class="icon-feature-4 icon"></i>
+                <div class="aside">
+                    <h2>利息低</h2>
+                    <h4>日息低至0.027%</h4>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- 中间部分 -->
+    <div id="middle" style="background-color: #f1f1f1;padding:10px 0;">
+        <div style='width:1200px;margin:5px auto;'>
+            <!-- 借入借出 -->
+            <div id="borrow" style='margin:20px 0;overflow:hidden;'>
+                <div id="borrowOut" style="width:586px;background-color: #fff;margin-right:22px;margin-bottom:10px;" class='pull-left'>
+                    <h3>借出</h3>
+                    <div style='padding:20px;overflow:hidden;position:relative;padding-bottom:20px;'>
+                        <div style="width:240px;float:left;padding-bottom:70px;">
+                            <p>最低<span>100</span>元即可投资</p>
+                            <p><span>高收益</span>超过普通理财产品</p>
+                            <p><span>100%</span>本息保障</p>
+                            <p style='padding-bottom:20px'><span>灵活的投资组合</span></p>
+                        </div>
+                        <div style="width:140px;float:right">
+                            <img src="./img/icon2.png" style='margin-top:50px;'>
+                        </div>
+                        <div style="border-bottom:2px dashed #D3D0D0;" class="clearfix"></div>
+                    </div>
+                    <center>
+                        <button type='button' class='btn' style="outline:none">立即申请</button>
+                    </center>
+                </div>
+                <div id="borrowIn" style="width:586px;background-color: #fff;margin-bottom:10px;" class='pull-right'>
+                    <h3>借入</h3>
+                    <div style='padding:20px;position:relative;padding-bottom:20px;'>
+                        <div style="width:240px;float:left;padding-bottom:70px;">
+                            <p>有<span>域名</span>轻松借贷</p>
+                            <p><span>免</span>各种材料审核</p>
+                            <p>有效利用<span>闲置</span>资产</p>
+                            <p style='padding-bottom:20px'><span>安全、快捷</span>到账</p>
+                        </div>
+                        <div style="width:140px;float:right">
+                            <img src="./img/icon1.png" style='margin-top:40px;'>
+                        </div>
+                        <div style="border-bottom:2px dashed #D3D0D0" class="clearfix"></div>
+                    </div>
+                    <center>
+                        <button type='button' class='btn' style="outline:none">立即申请</button>
+                    </center>
+                </div>
+            </div>
+            <!-- 申请流程 -->
+            <div class="flow-wrapper">
+                <h2 class="title">申请流程</h2>
+                <div class="inner-wrapper">
+                    <div class="step step-1">
+                        <div class="banner"></div>
+                        <p>点击申请</p>
+                    </div>
+                    <img src="img/step-arrow.png" class="step-arrow" alt="">
+                    <div class="step step-2">
+                        <div class="banner"></div>
+                        <p>提交资料</p>
+                    </div>
+                    <img src="img/step-arrow.png" class="step-arrow" alt="">
+                    <div class="step step-3">
+                        <div class="banner"></div>
+                        <p>信息审核</p>
+                    </div>
+                    <img src="img/step-arrow.png" class="step-arrow" alt="">
+                    <div class="step step-4">
+                        <div class="banner"></div>
+                        <p>审批放款</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 合作伙伴 -->
+    <footer style="background-color:#fff">
+        <div class="partner" style='width:1200px;margin:20px auto;'>
+            <div class="cooperator_t">合作伙伴</div>
+            <div><img src="./img/aliyun.png" alt="" style='padding:0 40px;'><img src="./img/lianlian.png" alt="" style='padding:0 40px;'></div>
+        </div>
+        <div style="border:1px solid #f1f1f1"></div>
+        <!-- 版权 -->
+        <div class="right" style='width:1200px;margin:40px auto;font-size:12px;'>
+            <div class="text-center">
+                <p>蜂e贷 © 360fengdai.com 浙ICP备15032348号-1 版权所有</p>
+                <p>浙江省杭州市滨江区江虹路611号上峰电商产业园2-1幢3楼</p>
+            </div>
+        </div>
+        </div>
+    </footer>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,270 @@
+
+ul,li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Microsoft YaHei', Arial, sans-serif, Helvetica, STHeiti, Droid Sans Fallback;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-weight: lighter;
+}
+
+#header {
+    margin:0 auto;
+    width:1200px;
+    overflow: hidden;
+    height: 61px;
+}
+
+#header ul li {
+    float: left;
+    width: 70px;
+    height: 61px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 61px;
+}
+
+
+#header ul li:not(.icon):hover {
+    border-bottom: 3px solid rgb(251, 178, 40);
+}
+
+#header ul li a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+}
+
+#notice a {
+    text-decoration: none;
+    color: #000;
+}
+
+#notice a:hover {
+    color: rgb(251, 178, 40);
+}
+
+.flow-wrapper {
+    width: 1200px;
+    box-sizing: border-box;
+    background: #fff;
+    padding: 10px 0;
+    margin: 16px auto 19px auto;
+}
+
+.flow-wrapper .inner-wrapper {
+    width: 1060px;
+    margin: 0 auto;
+}
+
+.flow-wrapper .title {
+    border-left: 4px solid #ffb400;
+    font-size: 16px;
+    color: #4c4a50;
+    padding-left: 14px;
+}
+
+.flow-wrapper .step {
+    vertical-align: middle;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.flow-wrapper .step .banner {
+    width: 62px;
+    height: 62px;
+}
+
+.flow-wrapper .step-arrow {
+    display: inline-block;
+    margin: 0 100px;
+    vertical-align: middle;
+}
+
+.flow-wrapper .step-1 .banner {
+    background: url(../img/step1.png);
+}
+
+.flow-wrapper .step-1:hover .banner {
+    background: url(../img/step1-hover.png);
+}
+
+.flow-wrapper .step-2 .banner {
+    background: url(../img/step2.png);
+}
+
+.flow-wrapper .step-2:hover .banner {
+    background: url(../img/step2-hover.png);
+}
+
+.flow-wrapper .step-3 .banner {
+    background: url(../img/step3.png);
+}
+
+.flow-wrapper .step-3:hover .banner {
+    background: url(../img/step3-hover.png);
+}
+
+.flow-wrapper .step-4 .banner {
+    background: url(../img/step4.png);
+}
+
+.flow-wrapper .step-4:hover .banner {
+    background: url(../img/step4-hover.png);
+}
+
+.partner .cooperator_t {
+    color: #343840;
+    font-size: 16px;
+    height: 50px;
+    font-weight: 600;
+}
+
+#borrow p {
+    font-size: 20px;
+    text-align: left;
+    line-height: 30px;
+}
+
+#borrowOut , #borrowIn {
+    height: 470px;
+}
+
+#borrowOut h3 {
+    margin-top: 0;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgb(251, 178, 40);
+}
+
+#borrowOut span {
+    color: rgb(251, 178, 40);
+}
+
+#borrowOut button {
+    background-color: rgb(251, 178, 40);
+    color: #fff;
+    padding: 10px 140px;
+    margin: 17px;
+}
+
+#borrowOut button:hover {
+    background-color: rgba(251, 178, 40, 0.8);
+}
+
+#borrowIn h3 {
+    margin-top: 0;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgb(108, 196, 0);
+}
+
+#borrowIn span {
+    color: rgb(108, 196, 0)
+}
+
+#borrowIn button {
+    background-color: rgb(108, 196, 0);
+    color: #fff;
+    padding: 10px 140px;
+    margin: 17px;
+}
+
+#borrowIn button:hover {
+    background-color: rgba(108, 196, 0, 0.8)
+}
+
+/* #borrowIn:hover {
+    border: 1px solid rgb(108, 196, 0);
+    box-shadow: 5px 5px 3px rgba(200, 199, 202, .6);
+}
+
+#borrowOut:hover {
+    border: 1px solid rgb(251, 178, 40);
+    box-shadow: 5px 5px 3px rgba(200, 199, 202, .6);
+} */
+
+.feature-list-wrapper {
+    background: #fff;
+}
+
+.feature-list-wrapper ul {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 25px 0 25px 20px;
+    overflow: hidden;
+}
+
+.icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.icon-feature-1 {
+    background-image: url(../img/sprite.png);
+    background-position: 0px -508px;
+    width: 85px;
+    height: 93px;
+}
+
+.icon-feature-2 {
+    background-image: url(../img/sprite.png);
+    background-position: -90px -508px;
+    width: 85px;
+    height: 93px;
+}
+
+.icon-feature-3 {
+    background-image: url(../img/sprite.png);
+    background-position: -180px -508px;
+    width: 85px;
+    height: 93px;
+}
+
+.icon-feature-4 {
+    background-image: url(../img/sprite.png);
+    background-position: -270px -508px;
+    width: 85px;
+    height: 93px;
+}
+
+.feature-list-wrapper .aside {
+    float: right;
+    margin-left: 20px;
+}
+
+.feature-list-wrapper .not-first {
+    margin-left: 92px;
+}
+
+.feature-list-wrapper ul li {
+    float: left;
+}
+
+.feature-list-wrapper .aside h2 {
+    font-size: 18px;
+    color: #4c4a50;
+    font-weight: bold;
+}
+
+.feature-list-wrapper .aside h2:hover {
+    color: rgb(251, 178, 40);
+}
+
+.feature-list-wrapper .aside h4 {
+    color: #6e6c72;
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: 500;
+}
